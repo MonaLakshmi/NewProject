@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .top-right form {
+            display: inline;
+        }
+
+        .form-container {
+            position: relative;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <!-- Top-right View History Button -->
+    <div class="top-right">
+        <form action="{{ url_for('view_history') }}">
+            <button type="submit">View History</button>
+        </form>
+    </div>
+
+    <h2>Welcome, {{ username }}!</h2>
+    <p><strong>Doctor Name:</strong> {{ doctor_name }}</p>
+    <p><strong>Hospital:</strong> {{ hospital_name }}</p>
+
+    <div class="card">
+        <h3>Check Image Status</h3>
+        <p>Navigate to check patient image submission status.</p>
+        <form action="{{ url_for('check_image') }}">
+            <button type="submit">Go to Form</button>
+        </form>
+    </div>
+    <div class="card">
+        <h3>Segmentation of Image</h3>
+        <p>Segmentation of slit-lamp images</p>
+        <form action="{{ url_for('cross_image') }}">
+            <button type="submit">Go to Form</button>
+        </form>
+    </div>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+</body>
+</html>
