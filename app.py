@@ -78,6 +78,9 @@ def processImage(img_path):
             return x, features
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+
     model = load_model("first_model.h5")
     base_model = models.densenet201(pretrained=False)
     model_1 = FeatureExtractor(base_model).to(device)
